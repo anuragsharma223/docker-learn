@@ -4,8 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "generate:db":"cd packages/db && bunx prisma generate",
-    "start:ws":"cd apps/websocket && bun run index.ts"
+    "start":"bun run index.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
