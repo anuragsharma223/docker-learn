@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "generate:db":" cd packages/db && bunx prisma generate ",
+    "start:backend":"cd apps/backend && bunx run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "db":"*"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "express": "^5.1.0"
+  }
+}

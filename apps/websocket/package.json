@@ -1,0 +1,21 @@
+{
+  "name": "websocket",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "generate:db":"cd packages/db && bunx prisma generate",
+    "start:ws":"cd apps/websocket && bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "db": "*"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/ws": "^8.18.1",
+    "ws": "^8.18.1"
+  }
+}
