@@ -1,4 +1,3 @@
-##Build the docker image 
 name: Deploy Backend 
 on:
   push:
@@ -23,6 +22,4 @@ jobs:
           file: ./docker/DockerFile.backend
           push: true
           tags: kanurag/appxbuild:${{github.sha}}
-## Push the docker image to docker hub
-## SSH into a vm and start the server 
 
