@@ -1,0 +1,4 @@
+##Build the docker image 
+## Push the docker image to docker hub
+## SSH into a vm and start the server 
+

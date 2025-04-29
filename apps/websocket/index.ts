@@ -1,5 +1,4 @@
 import { prismaClient } from "db/client";
-
 Bun.serve({
     port: 8081,
     fetch(req, server) {
