@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 RUN apt-get update -y && apt-get install -y openssl
 
 ARG DATABASE_URL
-ENV DATABASE_URL=$DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
 
 COPY ./packages ./packages
 COPY ./bun.lock ./bun.lock
