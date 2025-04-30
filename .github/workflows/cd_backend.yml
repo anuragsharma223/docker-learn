@@ -35,7 +35,7 @@ jobs:
 
       - name: Deploy to VM
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker pull kanurag0/appxbuild:${{ github.sha }} && docker stop app || true && docker rm app || true && docker run -d --name app -p 8080:8080 kanurag0/appxbuild:${{ github.sha }}"
+          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker pull kanurag0/appxbuild:${{ github.sha }} && docker stop app-backend && docker rm app-backend && docker run -d --name app-backend -p 8080:8080 kanurag0/appxbuild:${{ github.sha }}"
 
 
 
