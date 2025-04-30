@@ -25,6 +25,7 @@ jobs:
       - name: Deploy to VM 
         run: |
           echo "${{ secrets.SSH_KEY }}" &> ~ssh_key
+          ls /home/runner/.ssh
           mkdir -p /home/runner/.ssh
           chmod 700 /home/runner/ssh_key
           ssh -0 StrictHostKeyChecking=no -i ~ssh_key ubuntu@54.234.24.224
