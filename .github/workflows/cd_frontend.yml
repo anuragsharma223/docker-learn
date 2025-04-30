@@ -15,10 +15,10 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v2
         with:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_TOKEN}}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push 
+      - name: Build and push Docker Image
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -26,7 +26,7 @@ jobs:
           build-args:
             - DATABASE_URL: ${{ secrets.DATABASE_URL }}
           push: true
-          tags: kanurag0/appxfrontend:${{github.sha}}
+          tags: kanurag0/appxfrontend:${{ github.sha }}
 
       - name: Set up SSH
         run: |
@@ -37,4 +37,4 @@ jobs:
 
       - name: Deploy to VM 
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker pull kanurag0/appxfrontend:${{github.sha}} && docker run -d -p 3000:3000 --name app-fr kanurag0/appxfrontend:${{github:sha}}"
+          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker pull kanurag0/appxfrontend:${{ github.sha }} && docker run -d -p 3000:3000 --name app-fr kanurag0/appxfrontend:${{ github:sha }}"
