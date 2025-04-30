@@ -24,10 +24,7 @@ jobs:
           tags: kanurag0/appxbuild:${{github.sha}}
       - name: Deploy to VM 
         run: |
-          echo "${{ secrets.SSH_KEY }}" &> ~ssh_key
-          mkdir -p /home/runner/.ssh
-          ls /home/runner/.ssh
-          chmod 700 /home/runner/ssh_key
-          ssh -0 StrictHostKeyChecking=no -i ~ssh_key ubuntu@54.234.24.224
+          echo "${{ secrets.SSH_KEY }}" &> ~authorized_keys
+          ssh -0 StrictHostKeyChecking=no -i ~authorized_keys ubuntu@54.234.24.224
 
 
