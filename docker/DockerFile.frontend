@@ -2,6 +2,8 @@ FROM oven/bun:1
 
 WORKDIR /usr/src/app
 
+RUN apt-get update -y && apt-get install -y openssl
+
 ARG DATABASE_URL
 ENV DATABASE_URL=${DATABASE_URL}
 
@@ -15,7 +17,9 @@ COPY ./turbo.json ./turbo.json
 COPY ./apps/web ./apps/web
 
 RUN bun install 
+
 RUN bun run db:generate
+
 RUN bun run build
 
 EXPOSE 3000
