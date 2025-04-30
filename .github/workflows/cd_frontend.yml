@@ -24,3 +24,14 @@ jobs:
           file: ./docker/DockerFile.frontend
           push: true
           tags: kanurag0/appxfrontend:${{github.sha}}
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 54.234.24.224 >> ~/.ssh/known_hosts
+
+      - name: Deploy to VM 
+        run: |
+          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker pull kanurag0/appxfrontend:${{github.sha}} && docker run -d -p 3000:3000 --name app-fr kanurag0/appxfrontend:${{github:sha}}"
