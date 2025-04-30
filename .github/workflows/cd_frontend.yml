@@ -20,7 +20,7 @@ jobs:
 
       - name: Build and push Docker Image
         run: |
-          docker build -f ./docker/DockerFile.frontend --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} -t kanurag0/appxfrontend:${{github.sha}} .
+          docker build -f ./docker/DockerFile.frontend -e DATABASE_URL=${{ secrets.DATABASE_URL }} --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} -t kanurag0/appxfrontend:${{github.sha}} . 
           docker push kanurag0/appxfrontend:${{ github.sha }}
 
       - name: Set up SSH
