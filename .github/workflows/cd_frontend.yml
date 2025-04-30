@@ -40,4 +40,4 @@ jobs:
 
       - name: Deploy to VM 
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker images prune -a -f && docker pull kanurag0/appxfrontend:${{ github.sha }} && docker run -d -p 3000:3000 --name app-fr -e DATABASE_URL=${{ secrets.DATABASE_URL }} kanurag0/appxfrontend:${{ github.sha }}"
+          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker image prune -a --force && docker pull kanurag0/appxfrontend:${{ github.sha }} && docker run -d -p 3000:3000 --name app-fr -e DATABASE_URL=${{ secrets.DATABASE_URL }} kanurag0/appxfrontend:${{ github.sha }}"
