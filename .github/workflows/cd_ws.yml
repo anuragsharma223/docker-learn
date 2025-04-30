@@ -32,7 +32,7 @@ jobs:
 
       - name: Deploy to VM
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker pull kanurag0/appxws:${{ github.sha }} && docker stop app-ws && docker rm app-ws  && docker run -d --name app-ws -p 8081:8081 kanurag0/appxws:${{ github.sha }}"
+          ssh -i ~/.ssh/id_rsa ubuntu@54.234.24.224 "docker pull kanurag0/appxws:${{ github.sha }}  && docker run -d --name app-ws -p 8081:8081 kanurag0/appxws:${{ github.sha }}"
 
 
 
